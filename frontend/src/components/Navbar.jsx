@@ -87,7 +87,7 @@ const Navbar = () => {
 				viewBox="0 0 180 30"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
-				onClick={() => navigate("/home")}
+				onClick={() => navigate("/dashboard")}
 				className="cursor-pointer"
 			>
 				<path
@@ -137,7 +137,7 @@ const Navbar = () => {
 						>
 							{user && user.first_name}{" "}
 							<ChevronDownIcon
-								className="relative top-[1px] ml-2 mb-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
+								className="relative top-px ml-2 mb-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
 								aria-hidden="true"
 							/>
 						</Button>
@@ -173,7 +173,7 @@ const Navbar = () => {
 							<DialogTrigger asChild onSelect={(e) => e.preventDefault()}>
 								<DropdownMenuItem>Donate</DropdownMenuItem>
 							</DialogTrigger>
-							<DialogContent className="w-full lg:w-[600px] h-80 flex flex-col lg:flex-row items-center gap-10">
+							<DialogContent className="w-full lg:w-150 h-80 flex flex-col lg:flex-row items-center gap-10">
 								<DialogHeader className="flex flex-col gap-4">
 									<DialogTitle>Donate</DialogTitle>
 									<DialogDescription>
@@ -3512,7 +3512,7 @@ const Navbar = () => {
 							<InfoIcon size={16} />
 						</Button>
 					</DialogTrigger>
-					<DialogContent className="w-full lg:w-[600px]">
+					<DialogContent className="w-full lg:w-150">
 						<div className="w-full flex flex-col items-center gap-10 justify-center">
 							<svg
 								width="100"

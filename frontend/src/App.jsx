@@ -9,6 +9,7 @@ import { Toaster } from "sonner";
 import AuthWrapper from "./components/AuthWrapper";
 import Dashboard from "./pages/Dashboard";
 import { ThemeProvider } from "./components/ui/theme-provider";
+import Host from "./pages/Host";
 
 function App() {
 	const Wrapper = ({ children }) => {
@@ -33,6 +34,7 @@ function App() {
 
 									<Route element={<AuthWrapper />}>
 										<Route path="/dashboard" element={<Dashboard />} />
+										<Route path="/connect/host" element={<Host />} />
 									</Route>
 								</Routes>
 							</Wrapper>

@@ -250,8 +250,10 @@ export const {
 export const terminateHostAction = (data) => async (dispatch) => {
 	dispatch(terminateHostStart());
 	try {
-		const apiUrl = DEV_MODE ? `${BACKEND_API_URL}/api/shadownet/self_terminate/` : `/api/shadownet/self_terminate/`;
-		const response = await api.post(apiUrl, data, conf);
+		const apiUrl = DEV_MODE
+			? `${BACKEND_API_URL}/api/shadownet/self_terminate/`
+			: `/api/shadownet/self_terminate/`;
+		const response = await api.post(apiUrl, data);
 		dispatch(terminateHostSuccess(response.data));
 	} catch (error) {
 		dispatch(terminateHostFailure(error.message));
@@ -293,8 +295,10 @@ export const {
 export const postAgentBuildAction = (data) => async (dispatch) => {
 	dispatch(postAgentBuildStart());
 	try {
-		const apiUrl = DEV_MODE ? `${BACKEND_API_URL}/api/shadownet/post_agent_build/` : `/api/shadownet/post_agent_build/`;
-		const response = await api.post(apiUrl, data, conf);
+		const apiUrl = DEV_MODE
+			? `${BACKEND_API_URL}/api/shadownet/post_agent_build/`
+			: `/api/shadownet/post_agent_build/`;
+		const response = await api.post(apiUrl, data);
 		dispatch(postAgentBuildSuccess(response.data));
 	} catch (error) {
 		dispatch(postAgentBuildFailure(error.message));
@@ -336,8 +340,10 @@ export const {
 export const getAgentListAction = () => async (dispatch) => {
 	dispatch(getAgentListStart());
 	try {
-		const apiUrl = DEV_MODE ? `${BACKEND_API_URL}/api/shadownet/get_agent_list/` : `/api/shadownet/get_agent_list/`;
-		const response = await api.get(apiUrl, conf);
+		const apiUrl = DEV_MODE
+			? `${BACKEND_API_URL}/api/shadownet/get_agent_list/`
+			: `/api/shadownet/get_agent_list/`;
+		const response = await api.get(apiUrl);
 		dispatch(getAgentListSuccess(response.data));
 	} catch (error) {
 		dispatch(getAgentListFailure(error.message));

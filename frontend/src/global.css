@@ -173,7 +173,7 @@ input[type=number] {
     @apply bg-background text-foreground scroll-smooth antialiased m-5 font-sans;
   }
   article {
-    @apply mb-[5rem]
+    @apply mb-20
   }
   .fixedNav a:hover > svg {
       stroke: hsl(var(--foreground));
