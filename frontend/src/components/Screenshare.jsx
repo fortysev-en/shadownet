@@ -1,6 +1,5 @@
 /** @format */
 
-"use client";
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -49,7 +48,7 @@ const Screenshare = ({ id, socketState, socketStream, setSocketStream }) => {
 	}, [btnState]);
 
 	return (
-		<div className="w-full flex flex-col gap-5 min-h-[60vh]">
+		<div className="w-full flex flex-col gap-2 min-h-[60vh]">
 			<div className="bg-muted dark:bg-[#141414] p-4 rounded-xl flex flex-col lg:flex-row gap-4 items-start justify-between w-full">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Start Stream</h3>
@@ -97,7 +96,6 @@ const Screenshare = ({ id, socketState, socketStream, setSocketStream }) => {
 				</AlertDialog>
 			</div>
 			<div className="w-full flex gap-5 h-full">
-				{/* <div className="w-full lg:w-[80%] h-[70vh] bg-muted/30 rounded-xl flex items-center justify-center"> */}
 				<div className="w-full h-[60vh] bg-muted/30 rounded-xl flex items-center justify-center">
 					{socketStream && btnState ? (
 						<div className="h-full">
@@ -111,25 +109,6 @@ const Screenshare = ({ id, socketState, socketStream, setSocketStream }) => {
 						<VideoOffIcon size={80} strokeWidth={1.2} className="opacity-60" />
 					)}
 				</div>
-				{/* <div className="w-full lg:w-[20%] h-[70vh] bg-muted/30 rounded-xl flex flex-col gap-8 p-5">
-					<div className="w-full flex items-center gap-2 px-2">
-						<GalleryHorizontalEndIcon size={38} strokeWidth={1.5} />
-						<div className="w-full flex items-center justify-between px-2">
-							<div className="flex flex-col">
-								<h3 className="font-semibold">History</h3>
-								<h6 className="text-sm text-muted-foreground/80">
-									List of all previous history.
-								</h6>
-							</div>
-							<h3 className="font-semibold">
-								
-							</h3>
-						</div>
-					</div>
-					<div className="w-full h-full flex flex-col items-center justify-center">
-						<ListIcon size={80} strokeWidth={1.2} className="opacity-60" />
-					</div>
-				</div> */}
 			</div>
 		</div>
 	);

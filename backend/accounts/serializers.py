@@ -6,5 +6,5 @@ class AccountSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Account
-        fields = ('id', 'is_superuser', 'email', 'first_name', 'last_name', 'is_active', 'is_admin', 'is_mechanic', 'is_advisor', 'date_joined', 'last_login')
+        fields = ('id', 'is_superuser', 'email', 'first_name', 'last_name', 'is_active', 'is_admin', 'date_joined', 'last_login')
         # fields = '__all__'

@@ -89,71 +89,58 @@ export const {
 } = AuthUserSlice.actions;
 
 export const authUser = () => async (dispatch) => {
-  dispatch(getAuthUserStart());
-  const access = localStorage.getItem("access")
-  const conf = {
-      headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${access}`,
-      },
-  };
-  try {
-    const apiUrl = DEV_MODE ? `${BACKEND_API_URL}/api/accounts/auth_user/`: `/api/accounts/auth_user/`;
-    const response = await api.get(apiUrl, conf);
-    dispatch(getAuthUserSuccess(response.data));
-  } catch (error) {
-    dispatch(getAuthUserFailure(error.response.data));
-  }
+	dispatch(getAuthUserStart());
+	try {
+		const apiUrl = DEV_MODE
+			? `${BACKEND_API_URL}/api/accounts/auth_user/`
+			: `/api/accounts/auth_user/`;
+		const response = await api.get(apiUrl);
+		dispatch(getAuthUserSuccess(response.data));
+	} catch (error) {
+		dispatch(getAuthUserFailure(error.response.data));
+	}
 };
 
-
 export const ChangePasswordSlice = createSlice({
-  name: 'ChangePassword',
-  initialState: {},
-  reducers: {
-    changePasswordStart(state) {
-      state.isLoading = true;
-      state.error = null;
-    },
-    changePasswordSuccess(state, action) {
-      state.success = true;
-      state.isLoading = false;
-      state.error = null;
-    },
-    changePasswordFailure(state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    changePasswordReset() {
-      return {};
-    },
-  },
+	name: "ChangePassword",
+	initialState: {},
+	reducers: {
+		changePasswordStart(state) {
+			state.isLoading = true;
+			state.error = null;
+		},
+		changePasswordSuccess(state, action) {
+			state.success = true;
+			state.isLoading = false;
+			state.error = null;
+		},
+		changePasswordFailure(state, action) {
+			state.isLoading = false;
+			state.error = action.payload;
+		},
+		changePasswordReset() {
+			return {};
+		},
+	},
 });
 
 export const {
-  changePasswordStart,
-  changePasswordSuccess,
-  changePasswordFailure,
-  changePasswordReset
+	changePasswordStart,
+	changePasswordSuccess,
+	changePasswordFailure,
+	changePasswordReset,
 } = ChangePasswordSlice.actions;
 
 export const changePassword = (putData) => async (dispatch) => {
-  dispatch(changePasswordStart());
-  const access = localStorage.getItem("access")
-  const conf = {
-      headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${access}`,
-      },
-  };
-  try {
-    const apiUrl = DEV_MODE
-          ? `${BACKEND_API_URL}/api/accounts/update_password/`
-          : `/api/accounts/update_password/`;
+	dispatch(changePasswordStart());
+	try {
+		const apiUrl = DEV_MODE
+			? `${BACKEND_API_URL}/api/accounts/update_password/`
+			: `/api/accounts/update_password/`;
 
-    const response = await api.put(apiUrl, putData, conf);
-    dispatch(changePasswordSuccess(response.data));
-  } catch (error) {
-    dispatch(changePasswordFailure(error.response.data));
-  }
+		const response = await api.put(apiUrl, putData);
+		dispatch(changePasswordSuccess(response.data));
+	} catch (error) {
+		dispatch(changePasswordFailure(error.response.data));
+	}
 };

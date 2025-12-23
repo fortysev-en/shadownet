@@ -1,0 +1,30 @@
+services:
+  backend_service:
+    container_name: backend
+    build:
+      context: ./backend
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    volumes:
+      - ./backend:/backend
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+        - DJANGO_SU_EMAIL=admin@shadownet.com
+        - DJANGO_SU_PASSWORD=admin
+        - DJANGO_SU_FIRSTNAME=Admin
+        - DJANGO_SU_LASTNAME=Shadownet
+
+
+  nginx_service:
+    container_name: nginx
+    build:
+      context: ./nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./frontend/dist:/var/www/frontend/dist
+    restart: unless-stopped
+    depends_on:
+      - backend_service

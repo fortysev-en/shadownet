@@ -10,22 +10,19 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/asgi/
 import os
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
-from shadownet import consumers
 from channels.auth import AuthMiddlewareStack
-from django.urls import path
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 
-websocket_urlpatterns = [
-    path('ws/shadownet/connect/host/', consumers.HostConnectionConsumer.as_asgi()),
-    path('ws/shadownet/connect/client/', consumers.ClientConnectionConsumer.as_asgi()),
-    path('ws/shadownet/connect/client/explorer/', consumers.ExplorerConnectionConsumer.as_asgi()),
-    path('ws/shadownet/connect/client/agent/', consumers.AgentConnectionConsumer.as_asgi()),
-]
+django_asgi_app = get_asgi_application()
+
+import shadownet.routing
 
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
+    "http": django_asgi_app,
     "websocket": AuthMiddlewareStack(
-        URLRouter(websocket_urlpatterns)
+        URLRouter(
+            shadownet.routing.websocket_urlpatterns
+        )
     ),
 })

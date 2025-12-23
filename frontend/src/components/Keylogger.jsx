@@ -51,7 +51,6 @@ const Keylogger = ({ id, socketState, socketStream, setSocketStream }) => {
 
 	useEffect(() => {
 		if (socketStream) {
-			console.log(socketStream);
 			setLogs((prev) => prev + socketStream);
 		}
 	}, [socketStream]);
