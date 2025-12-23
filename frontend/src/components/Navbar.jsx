@@ -130,19 +130,21 @@ const Navbar = () => {
 			<div className="flex items-center gap-1">
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button
+						<div
 							variant="ghost"
 							size="sm"
-							className="h-8 px-4 bg-muted/50 hover:bg-muted cursor-pointer uppercase rounded-md"
+							className="h-8 px-3 w-40 bg-muted cursor-pointer uppercase rounded-md flex items-center justify-between"
 						>
-							{user && user.first_name}{" "}
+							<span className="text-sm font-semibold">
+								{user && user.first_name}
+							</span>
 							<ChevronDownIcon
 								className="relative top-px ml-2 mb-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
 								aria-hidden="true"
 							/>
-						</Button>
+						</div>
 					</DropdownMenuTrigger>
-					<DropdownMenuContent className="w-56 absolute -right-14 top-1">
+					<DropdownMenuContent className="w-56 absolute -right-20 top-1">
 						<DropdownMenuLabel>My Account</DropdownMenuLabel>
 						<DropdownMenuSeparator />
 						<DropdownMenuGroup>
@@ -3507,7 +3509,7 @@ const Navbar = () => {
 						<Button
 							size="sm"
 							variant="ghost"
-							className="h-8 px-2 bg-muted/50 hover:bg-muted"
+							className="h-8 px-2 bg-muted"
 						>
 							<InfoIcon size={16} />
 						</Button>
@@ -3589,7 +3591,7 @@ const Navbar = () => {
 					</DialogContent>
 				</Dialog>
 				<div
-					className="flex items-center justify-center w-8 h-8 bg-muted/50 hover:bg-muted cursor-pointer rounded-md"
+					className="flex items-center justify-center w-8 h-8 bg-muted cursor-pointer rounded-md"
 					onClick={toggleTheme}
 				>
 					{userTheme === "light" ? (

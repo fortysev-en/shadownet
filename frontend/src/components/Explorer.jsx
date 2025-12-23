@@ -288,8 +288,8 @@ const Explorer = ({ id, socketState, socketStream, setSocketStream }) => {
 	};
 
 	return (
-		<div className="w-full flex flex-col gap-5 min-h-[60vh]">
-			<div className="bg-muted/30 lg:p-4 rounded-xl flex items-center justify-between w-full">
+		<div className="w-full flex flex-col gap-2 min-h-[60vh]">
+			<div className="bg-muted dark:bg-[#141414] p-4 rounded-xl flex items-center justify-between w-full">
 				<div className="flex flex-col gap-1">
 					<h3 className="text-md font-semibold">File Explorer</h3>
 					<h6 className="text-sm text-muted-foreground">
@@ -297,7 +297,7 @@ const Explorer = ({ id, socketState, socketStream, setSocketStream }) => {
 					</h6>
 				</div>
 			</div>
-			<div className="bg-muted/30 p-4 rounded-xl w-full flex flex-col gap-4">
+			<div className="bg-muted/30 rounded-xl w-full flex flex-col gap-4">
 				<div className="flex items-center gap-1 pb-2 select-none flex-wrap">
 					<div
 						className={

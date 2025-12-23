@@ -50,7 +50,7 @@ const Agent = ({ id }) => {
 
 	return (
 		<div className="w-full flex flex-col gap-2">
-			<div className="flex w-full gap-8 flex-col bg-muted/30 lg:p-4 rounded-xl">
+			<div className="flex w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Shadownet Agent</h3>
 					<h6 className="text-sm text-muted-foreground">
@@ -62,7 +62,7 @@ const Agent = ({ id }) => {
 					<code className="text-sm text-muted-foreground">{id}</code>
 				</div>
 			</div>
-			<div className="bg-muted/30 p-4 rounded-xl flex flex-col lg:flex-row gap-4 lg:items-center justify-between w-full">
+			<div className="bg-muted dark:bg-[#141414] p-4 rounded-xl flex flex-col lg:flex-row gap-4 items-start justify-between w-full">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Terminate</h3>
 					<h6 className="text-sm text-muted-foreground">
@@ -71,7 +71,9 @@ const Agent = ({ id }) => {
 				</div>
 				<AlertDialog>
 					<AlertDialogTrigger asChild>
-						<Button className="w-40 bg-red-200 text-black">Terminate</Button>
+						<Button className="w-40 bg-red-200 text-black dark:hover:text-dark hover:text-background">
+							Terminate
+						</Button>
 					</AlertDialogTrigger>
 					<AlertDialogContent>
 						<AlertDialogHeader>

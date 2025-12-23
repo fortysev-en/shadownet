@@ -12,7 +12,7 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -50,7 +50,7 @@ const Screenshare = ({ id, socketState, socketStream, setSocketStream }) => {
 
 	return (
 		<div className="w-full flex flex-col gap-5 min-h-[60vh]">
-			<div className="bg-muted/30 lg:p-4 rounded-xl flex flex-col lg:flex-row gap-4 items-start justify-between w-full">
+			<div className="bg-muted dark:bg-[#141414] p-4 rounded-xl flex flex-col lg:flex-row gap-4 items-start justify-between w-full">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Start Stream</h3>
 					<h6 className="text-sm text-muted-foreground">

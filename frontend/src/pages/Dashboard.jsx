@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/chart";
 
 const Dashboard = () => {
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -44,11 +45,15 @@ const Dashboard = () => {
 		};
 	}, []);
 
+	useEffect(() => {
+		document.title = `Dashboard`;
+	}, []);
+
 	return (
 		<Container className="mt-10">
 			<Navbar />
 			<div className="w-full flex flex-col gap-2">
-				<div className="w-full rounded-xl bg-muted/50 p-5 flex flex-col gap-8">
+				<div className="w-full rounded-xl bg-muted dark:bg-[#141414] p-5 flex flex-col gap-8">
 					<div className="w-full flex items-center justify-between px-2">
 						<div className="flex flex-col">
 							<h3 className=" font-semibold">
@@ -59,39 +64,6 @@ const Dashboard = () => {
 							</h6>
 						</div>
 					</div>
-					{/* <ResponsiveContainer width="100%" height="100%">
-						<BarChart data={dashboardData && dashboardData.connections}>
-							<Bar dataKey="win" barSize={40} fill="#357EC7" />
-							<Bar dataKey="lin" barSize={40} fill="#E95420" />
-							<Bar dataKey="mac" barSize={40} fill="#304b57" />
-							<XAxis dataKey="date" fontWeight={500} fontSize={12} />
-							<Tooltip
-								itemStyle={{
-									color: "hsl(var(--background))",
-									fontSize: "12px",
-									fontWeight: "500",
-									padding: "0",
-								}}
-								contentStyle={{
-									color: "hsl(var(--background))",
-									fontWeight: "500",
-									backgroundColor: "hsl(var(--foreground))",
-									border: "none",
-									borderRadius: "10px",
-								}}
-								wrapperStyle={{
-									border: "none",
-									outline: "none",
-								}}
-								cursor={{ fill: "hsl(var(--muted-forground))", opacity: 0.2 }}
-							/>
-							<ChartTooltip
-								cursor={false}
-								content={<ChartTooltipContent hideLabel className="w-50" />}
-							/>
-						</BarChart>
-					</ResponsiveContainer> */}
-
 					<ChartContainer config={{}} className="w-full h-45">
 						<BarChart
 							accessibilityLayer
@@ -105,7 +77,7 @@ const Dashboard = () => {
 								fillOpacity={0.4}
 							/>
 							<XAxis
-								dataKey="label"
+								dataKey="date"
 								tickLine={false}
 								tickMargin={10}
 								axisLine={false}
@@ -135,7 +107,7 @@ const Dashboard = () => {
 					</ChartContainer>
 				</div>
 				<div className="w-full flex gap-5 flex-col lg:flex-row">
-					<div className="w-full h-[55vh] rounded-xl bg-muted/50 flex flex-col gap-8 p-5">
+					<div className="w-full h-[55vh] rounded-xl bg-muted dark:bg-[#141414] flex flex-col gap-8 p-5">
 						<div className="w-full flex items-center justify-between px-2">
 							<div className="flex flex-col">
 								<h3 className=" font-semibold">Connected Hosts</h3>

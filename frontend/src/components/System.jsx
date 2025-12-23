@@ -83,7 +83,7 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 	return (
 		<div className="flex flex-col lg:flex-row flex-wrap w-full gap-2">
 			{system && system ? (
-				<div className="flex flex-1 lg:min-w-[800px] w-full gap-8 flex-col bg-muted/30 lg:p-4 rounded-xl">
+				<div className="flex flex-1 lg:min-w-200 w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 					<div className="flex flex-col gap-1">
 						<h3 className=" font-semibold">System</h3>
 						<h6 className="text-sm text-muted-foreground">
@@ -100,11 +100,11 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 					</div>
 				</div>
 			) : (
-				<Skeleton className="flex flex-1 lg:min-w-[800px] w-full gap-8 flex-col bg-muted/30 p-4 rounded-xl h-80" />
+				<Skeleton className="flex flex-1 lg:min-w-200 w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl h-80" />
 			)}
 
 			{memory && memory ? (
-				<div className="flex flex-1 lg:min-w-[800px] w-full gap-8 flex-col bg-muted/30 p-4 rounded-xl">
+				<div className="flex flex-1 lg:min-w-200 w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 					<div className="flex flex-col gap-1">
 						<h3 className=" font-semibold">Memory</h3>
 						<h6 className="text-sm text-muted-foreground">
@@ -121,11 +121,11 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 					</div>
 				</div>
 			) : (
-				<Skeleton className="flex flex-1 lg:min-w-[800px] w-full gap-8 flex-col bg-muted/30 p-4 rounded-xl h-80" />
+				<Skeleton className="flex flex-1 lg:min-w-200 w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl h-80" />
 			)}
 
 			{filteredList && filteredList ? (
-				<div className="flex flex-1 flex-grow w-full lg:min-w-[800px] gap-8 flex-col bg-muted/30 p-4 rounded-xl">
+				<div className="flex flex-1 grow w-full lg:min-w-200 gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 					<div className="w-full flex items-center justify-between">
 						<div className="flex flex-col gap-1">
 							<h3 className=" font-semibold">Processes</h3>
@@ -220,11 +220,11 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 					</div>
 				</div>
 			) : (
-				<Skeleton className="flex flex-1 flex-grow w-full lg:min-w-[800px] gap-8 flex-col bg-muted/30 p-4 rounded-xl h-80" />
+				<Skeleton className="flex flex-1 grow w-full lg:min-w-200 gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl h-80" />
 			)}
 
 			{disk && disk ? (
-				<div className="flex flex-1 flex-grow lg:min-w-[600px] gap-8 flex-col bg-muted/30 p-4 rounded-xl">
+				<div className="flex flex-1 grow lg:min-w-150 gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 					<div className="flex flex-col gap-1">
 						<h3 className=" font-semibold">Disk</h3>
 						<h6 className="text-sm text-muted-foreground">
@@ -245,9 +245,7 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 									<div
 										className={cn(
 											"h-3 opacity-80 rounded",
-											disk.percent <= 80
-												? "bg-[#6ee7b7]"
-												: "bg-[#f87171]"
+											disk.percent <= 80 ? "bg-[#6ee7b7]" : "bg-[#f87171]"
 										)}
 										style={{
 											width: `${disk.percent}%`,
@@ -266,11 +264,11 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 					</div>
 				</div>
 			) : (
-				<Skeleton className="flex flex-1 flex-grow lg:min-w-[600px] gap-8 flex-col bg-muted/30 p-4 rounded-xl h-80" />
+				<Skeleton className="flex flex-1 grow lg:min-w-150 gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl h-80" />
 			)}
 
 			{geo && geo ? (
-				<div className="flex w-full gap-8 flex-col bg-muted/30 p-4 rounded-xl">
+				<div className="flex w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 					<div className="flex flex-col gap-1">
 						<h3 className=" font-semibold">Geolocation</h3>
 						<h6 className="text-sm text-muted-foreground">
@@ -300,7 +298,7 @@ const System = ({ id, socketState, socketStream, setSocketStream }) => {
 					</div>
 				</div>
 			) : (
-				<Skeleton className="flex w-full gap-8 flex-col bg-muted/30 p-4 rounded-xl h-80" />
+				<Skeleton className="flex w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl h-80" />
 			)}
 		</div>
 	);

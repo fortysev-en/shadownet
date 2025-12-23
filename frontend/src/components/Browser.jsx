@@ -85,7 +85,7 @@ const Browser = ({ id, socketState, socketStream, setSocketStream }) => {
 
 	return (
 		<div className="w-full flex flex-col">
-			<div className="flex w-full gap-8 flex-col bg-muted/30 lg:p-4 rounded-xl">
+			<div className="flex w-full gap-8 flex-col bg-muted dark:bg-[#141414] p-4 rounded-xl">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Browser Extractor</h3>
 					<h6 className="text-sm text-muted-foreground">

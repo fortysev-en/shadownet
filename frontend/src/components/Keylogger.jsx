@@ -13,12 +13,11 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import {
 	startSocketTasksAction,
 	stopSocketTasksAction,
 } from "@/lib/slices/ShadownetSlices";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -52,13 +51,14 @@ const Keylogger = ({ id, socketState, socketStream, setSocketStream }) => {
 
 	useEffect(() => {
 		if (socketStream) {
+			console.log(socketStream);
 			setLogs((prev) => prev + socketStream);
 		}
 	}, [socketStream]);
 
 	return (
-		<div className="w-full flex flex-col gap-5 min-h-[60vh]">
-			<div className="bg-muted/30 lg:p-4 rounded-xl flex items-center justify-between w-full">
+		<div className="w-full flex flex-col gap-2 min-h-[60vh]">
+			<div className="bg-muted dark:bg-[#141414] p-4 rounded-xl flex items-start justify-between w-full">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Start Keylogger</h3>
 					<h6 className="text-sm text-muted-foreground">
@@ -103,10 +103,10 @@ const Keylogger = ({ id, socketState, socketStream, setSocketStream }) => {
 					</AlertDialogContent>
 				</AlertDialog>
 			</div>
-			<div className="w-full h-[60vh] bg-muted/30 rounded-xl flex items-center justify-center">
-				<ScrollArea className="h-[60vh] w-full flex items-start overflow-scroll p-4">
+			<div className="w-full h-[60vh] bg-muted dark:bg-[#141414] rounded-xl flex items-center justify-center">
+				<div className="h-[60vh] w-full flex items-start overflow-scroll p-4">
 					<code className="text-sm">{logs}</code>
-				</ScrollArea>
+				</div>
 			</div>
 		</div>
 	);

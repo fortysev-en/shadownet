@@ -17,7 +17,7 @@ const Terminal = ({ id, socketState, socketStream, setSocketStream }) => {
 
 	return (
 		<div className="w-full flex flex-col gap-2 min-h-[60vh]">
-			<div className="bg-muted/30 lg:p-4 rounded-xl flex items-center justify-between w-full">
+			<div className="bg-muted dark:bg-[#141414] p-4 rounded-xl flex items-start justify-between w-full">
 				<div className="flex flex-col gap-1">
 					<h3 className="font-semibold">Terminal</h3>
 					<h6 className="text-sm text-muted-foreground">
