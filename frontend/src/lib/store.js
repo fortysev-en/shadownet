@@ -3,6 +3,7 @@ import {
 	AuthUserSlice,
 	ChangePasswordSlice,
 	LoginSlice,
+	UpdateProfileSlice,
 } from "@/lib/slices/AccountSlices";
 import {
 	GetDashboardSlice,
@@ -21,6 +22,7 @@ export const store = configureStore({
 		Login: LoginSlice.reducer,
 		AuthUser: AuthUserSlice.reducer,
 		ChangePassword: ChangePasswordSlice.reducer,
+		UpdateProfile: UpdateProfileSlice.reducer,
 
 		//SHADOWNET
 		GetDashboard: GetDashboardSlice.reducer,

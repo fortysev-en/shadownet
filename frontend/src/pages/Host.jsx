@@ -23,6 +23,7 @@ import Terminal from "@/components/Terminal";
 import Browser from "@/components/Browser";
 import {
 	AirplayIcon,
+	AlignJustifyIcon,
 	ChromeIcon,
 	FolderIcon,
 	KeyboardIcon,
@@ -34,9 +35,16 @@ import {
 import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Container from "@/components/Container";
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Host = () => {
-	
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	const dispatch = useDispatch();
@@ -134,7 +142,7 @@ const Host = () => {
 						value={tabValue}
 						onValueChange={(e) => setTabValue(e)}
 					>
-						<TabsList className="bg-muted-foreground/10 w-full items-center justify-start">
+						<TabsList className="bg-muted-foreground/10 w-full items-center justify-start md:flex hidden">
 							<div className="w-full justify-start gap-1 p-1 flex-row lg:flex hidden">
 								<TabsTrigger
 									className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
@@ -210,6 +218,98 @@ const Host = () => {
 								</TabsTrigger>
 							</div>
 						</TabsList>
+
+						<div className="md:hidden block w-full">
+							<Sheet>
+								<SheetTrigger asChild>
+									<div className="dark:bg-[#141414] bg-muted w-full flex items-center gap-2 p-2 cursor-pointer">
+										<AlignJustifyIcon size={20} />
+										<span>Menu</span>
+									</div>
+								</SheetTrigger>
+								<SheetContent>
+									<SheetHeader>
+										<SheetTitle>Menu</SheetTitle>
+										<SheetDescription>Navigate through tabs</SheetDescription>
+									</SheetHeader>
+									<TabsList className="flex w-full flex-col text-left mt-24">
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="disclaimer"
+										>
+											<div className="flex items-center gap-2">
+												<TriangleAlertIcon size={16} className="mb-0.5" />
+												<span>DISCLAIMER</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="system"
+										>
+											<div className="flex items-center gap-2">
+												<SettingsIcon size={16} className="mb-0.5" />
+												<span>SYSTEM</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="screenshare"
+										>
+											<div className="flex items-center gap-2">
+												<AirplayIcon size={16} className="mb-0.5" />
+												<span>SCREENSHARE</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="fileExplorer"
+										>
+											<div className="flex items-center gap-2">
+												<FolderIcon size={16} className="mb-0.5" />
+												<span>FILE EXPLORER</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="keylogger"
+										>
+											<div className="flex items-center gap-2">
+												<KeyboardIcon size={16} className="mb-0.5" />
+												<span>KEYLOGGER</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="terminal"
+										>
+											<div className="flex items-center gap-2">
+												<SquareTerminalIcon size={16} className="mb-0.5" />
+												<span>TERMINAL</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-48 hover:bg-background hover:text-foreground py-1"
+											value="browser"
+										>
+											<div className="flex items-center gap-2">
+												<ChromeIcon size={16} className="mb-0.5" />
+												<span>BROWSER EXTRACT</span>
+											</div>
+										</TabsTrigger>
+										<TabsTrigger
+											className="w-full justify-start lg:justify-center lg:w-40 hover:bg-background hover:text-foreground py-1"
+											value="agent"
+										>
+											<div className="flex items-center gap-2">
+												<PickaxeIcon size={16} className="mb-0.5" />
+												<span>AGENT</span>
+											</div>
+										</TabsTrigger>
+									</TabsList>
+								</SheetContent>
+							</Sheet>
+						</div>
+
 						<TabsContent value="disclaimer" className="w-full">
 							<div className="w-full min-h-[70vh] flex flex-col items-center justify-center gap-6">
 								<h1 className="text-2xl font-semibold">DISCLAIMER</h1>
@@ -272,16 +372,16 @@ const Host = () => {
 							</div>
 						</TabsContent>
 						<TabsContent value="screenshare" className="w-full">
-						<div className="w-full flex flex-wrap gap-5">
-							<Screenshare
-								id={hostId}
-								socketState={socketState}
-								socketStream={socketStream}
-								setSocketStream={setSocketStream}
-								socketRef={socketRef}
-							/>
-						</div>
-					</TabsContent>
+							<div className="w-full flex flex-wrap gap-5">
+								<Screenshare
+									id={hostId}
+									socketState={socketState}
+									socketStream={socketStream}
+									setSocketStream={setSocketStream}
+									socketRef={socketRef}
+								/>
+							</div>
+						</TabsContent>
 						<TabsContent value="keylogger" className="w-full">
 							<div className="w-full flex flex-wrap gap-5">
 								<Keylogger

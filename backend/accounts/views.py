@@ -92,3 +92,19 @@ def update_password(request):
             return Response("Old password does not match!", status=status.HTTP_400_BAD_REQUEST)
     except Exception as e:
         return Response(str(e), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_profile(request):
+    data = request.data
+    try:
+        user = Account.objects.get(id = data['id'])
+        user.first_name = data['firstname']
+        user.last_name = data['lastname']
+        user.save()
+        return Response('Updated profile', status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response(str(e), status=status.HTTP_400_BAD_REQUEST)

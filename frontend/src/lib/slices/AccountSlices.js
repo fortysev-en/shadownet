@@ -144,3 +144,56 @@ export const changePassword = (putData) => async (dispatch) => {
 		dispatch(changePasswordFailure(error.response.data));
 	}
 };
+
+
+
+export const UpdateProfileSlice = createSlice({
+	name: "UpdateProfile",
+	initialState: {},
+	reducers: {
+		updateProfileStart(state) {
+			state.isLoading = true;
+			state.error = null;
+		},
+		updateProfileSuccess(state, action) {
+			state.success = true;
+			state.isLoading = false;
+			state.error = null;
+		},
+		updateProfileFailure(state, action) {
+			state.isLoading = false;
+			state.error = action.payload;
+		},
+		updateProfileReset() {
+			return {};
+		},
+	},
+});
+
+export const {
+	updateProfileStart,
+	updateProfileSuccess,
+	updateProfileFailure,
+	updateProfileReset,
+} = UpdateProfileSlice.actions;
+
+export const updateProfile = (profile) => async (dispatch) => {
+	dispatch(updateProfileStart());
+	const access = localStorage.getItem("access");
+	const conf = {
+		headers: {
+			Accept: "application/json",
+			Authorization: `Bearer ${access}`,
+		},
+	};
+	try {
+		const apiUrl = DEV_MODE
+			? `${BACKEND_API_URL}/api/accounts/update_profile/`
+			: `/api/accounts/update_profile/`;
+
+		const response = await api.put(apiUrl, profile, conf);
+		dispatch(updateProfileSuccess(response.data));
+	} catch (error) {
+		dispatch(updateProfileFailure(error.response.data));
+	}
+};
