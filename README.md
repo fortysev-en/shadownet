@@ -1,4 +1,7 @@
+
 # SHADOWNET
+
+![Dashboard](screenshots/banner.png)
 
 ShadowNet is an open-source, web-managed Remote Administration Tool (RAT) that allows you to manage connected hosts remotely through a browser-based interface.
 
